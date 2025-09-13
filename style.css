@@ -1,122 +1,121 @@
-/* Reset */
-* {
-  margin: 0;
+*{
   padding: 0;
-  box-sizing: border-box;
+  margin: 0;
 }
 
-body {
-  min-height: 100vh;
+body{
+  height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-family: 'Lora', serif;
-  background: #f8f8f8;
-  padding: 1rem;
-  font-size: 1rem;
+  align-items: center;
+  flex-direction: column;
+  font-size: 20px;
+  font-family: 'Lora','serif';
 }
 
-/* Choice boxes */
-.choice {
-  width: 100%;
-  max-width: 320px; /* fits small phones */
+.choice{
+  height: 60%;
+  width: 35%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  gap: 1rem;
-  text-align: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-#c1, #c2 {
+#c1,#c2{
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  padding: 1em;
 }
 
-#c2 {
+#c2{
   display: none;
 }
 
-/* Main game area */
-main {
-  width: 100%;
-  max-width: 320px; /* fits small phones */
+main{
+  height: 80%;
+  width: 40%;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  flex-direction: column;
+  gap: .5rem;
 }
 
-/* Game grid */
-.container {
-  width: 100%;
-  aspect-ratio: 1 / 1;           /* always square */
+.container{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(3,1fr);
   background-color: rgb(48, 46, 46);
+  color: white;
+  height: 80%;
+  width: 100%;
   border-radius: .5rem;
-  gap: 0.2rem;
-
 }
 
-/* Cells */
-.box {
+.box{
   background-color: aliceblue;
-  font-size: 2rem;               /* good size for mobile */
+  font-size: 3rem;
   font-weight: bold;
   border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.2s ease;
 }
 
-.box:active {
-  transform: scale(0.95);
+.box:hover{
+  border-radius: 1rem;
+  transform: scale(1.1);
 }
 
-/* Buttons */
-.btn {
-  padding: 0.4em 0.8em;
-  background-color: aliceblue;
-  color: black;
+.btn{
+  padding: .5em 1em;
+  background-color:aliceblue;
+  color:black;
   border-radius: .5em;
-  cursor: pointer;
-  font-size: 1rem;
-  border: none;
-  margin: 0.2rem;
-}
-
-.btn:hover {
-  background-color: #ddd;
 }
 
 .btn.focused {
   background-color: goldenrod;
-  color: white;
 }
 
-/* Winner message */
-#msg {
-  min-height: 1.5rem;
-  text-align: center;
-  font-size: 1.2rem;
-  margin-top: 0.5rem;
-}
+/* --------- Mobile adjustments --------- */
+@media (max-width: 600px) {
 
-/* For bigger screens (tablet, desktop) */
-@media (min-width: 600px) {
-  .choice, main {
-    max-width: 400px;
+  body {
+    font-size: 16px;           /* slightly smaller text */
+    padding: 0.5rem;
+  }
+
+  .choice {
+    width: 100%;               /* full width on mobile */
+    height: auto;              /* no forced height */
+    max-width: 320px;          /* keep it narrow */
+    gap: 0.5rem;
+  }
+
+  #c1, #c2 {
+    padding: 0.3rem;           /* smaller padding */
+    gap: 0.5rem;
+  }
+
+  main {
+    width: 100%;
+    height: auto;
+    max-width: 320px;          /* fits phone */
+  }
+
+  .container {
+    width: 100%;
+    aspect-ratio: 1 / 1;       /* always square grid */
   }
 
   .box {
-    font-size: 3rem;
+    font-size: 2rem;           /* good size for mobile cells */
   }
+
+  .btn {
+    padding: 0.4em 0.8em;      /* easy to tap */
+    font-size: 1rem;
+  }
+
 }
